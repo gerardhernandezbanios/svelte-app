@@ -1,20 +1,31 @@
-<!-- <script lang="ts">
-	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
-
-	let { children } = $props();
-</script>
-
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
-{@render children()} -->
-<script>
+<!-- <script>
   import "./layout.css";
   import Navbar from "$lib/components/nav/Navbar.svelte";
-  //import favicon from "$lib/assets/favicon.svg";
-
-  //	let { children } = $props();
 </script>
 
 <Navbar />
 
-<slot />
+<slot /> -->
+<!-- src/routes/+layout.svelte -->
+<script lang="ts">
+  import Topbar from "$lib/components/navigation/Topbar.svelte";
+  import Sidebar from "$lib/components/navigation/Sidebar.svelte";
+
+  let sidebarOpen: boolean = true;
+
+  const toggleSidebar = (): void => {
+    sidebarOpen = !sidebarOpen;
+  };
+</script>
+
+<div class="flex h-screen overflow-hidden">
+  <Sidebar open={sidebarOpen} />
+
+  <div class="flex-1 flex flex-col">
+    <Topbar {toggleSidebar} />
+
+    <main class="flex-1 overflow-auto p-4">
+      <slot />
+    </main>
+  </div>
+</div>
