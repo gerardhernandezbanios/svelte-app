@@ -1,0 +1,36 @@
+{
+  "name": "SvelteKit TypeScript + pnpm + Tailwind + Skeleton",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=>",
+  "remoteUser": "node",
+  "forwardPorts": [5173],
+  "postCreateCommand": "bash .devcontainer/postCreate.sh",
+  "mounts": [
+    "source=pnpm-store,target=/home/node/.local/share/pnpm,type=volume"
+  ],
+  "containerEnv": {
+    "PNPM_HOME": "/home/node/.local/share/pnpm",
+    "PATH": "/home/node/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "skeletonlabs.skeleton-svelte-vscode",
+        "svelte.svelte-vscode",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "files.associations": { "*.css": "tailwindcss" },
+        "tailwindCSS.includeLanguages": { "svelte": "html" }
+      }
+    }
+  }
+}
