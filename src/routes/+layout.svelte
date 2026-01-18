@@ -7,7 +7,7 @@
 
 <slot /> -->
 <!-- src/routes/+layout.svelte -->
-<script lang="ts">
+<!-- <script lang="ts">
   import Topbar from "$lib/components/navigation/Topbar.svelte";
   import Sidebar from "$lib/components/navigation/Sidebar.svelte";
 
@@ -28,4 +28,11 @@
       <slot />
     </main>
   </div>
-</div>
+</div> -->
+<script lang="ts">
+  import AppShell from "$lib/components/layout/AppShell.svelte";
+</script>
+
+<AppShell>
+  <slot />
+</AppShell>
