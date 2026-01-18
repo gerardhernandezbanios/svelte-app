@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Svelte App",
+      "type": "shell",
+      "command": "pnpm run build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$tsc"],
+      "detail": "Compila la aplicación Svelte."
+    },
+    {
+      "label": "Run Svelte App",
+      "type": "shell",
+      "command": "pnpm run dev",
+      "group": "test",
+      "detail": "Lanza la aplicación Svelte en modo desarrollo."
+    }
+  ]
+}
